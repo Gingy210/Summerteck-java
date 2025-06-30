@@ -1,1 +1,1 @@
-import util java.scanner;
+System.out.println("");
