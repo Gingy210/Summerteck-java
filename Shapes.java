@@ -17,9 +17,14 @@ for(int c=0;c<o;c++){
         System.out.print(" ");
     }
 for(int d=0;d < c+1;d++){
-System.out.print("x");
-System.out.print(" ");
+if(d==0 ||d==c){
+    System.out.print("x");
 
+}
+else{
+    System.out.print(" ");
+}
+System.out.print(" ");
 }
 System.out.println("");
 }
@@ -33,8 +38,13 @@ for(int c=0;c<o;c++){
 
 for(int d=o-c-1;d>0;d--){
 System.out.print(" ");
+    if(d==o-c-1 ||d==1){
     System.out.print("x");
-System.out.print("");
+
+}
+else{
+    System.out.print(" ");
+}
 
 }
 System.out.println("");
