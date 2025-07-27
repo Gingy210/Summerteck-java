@@ -16,7 +16,7 @@ int j=1;
 while(j<43){
 System.out.println(turn + "'s Turn. penk a colomn");
 int X=scan.nextInt(); 
-while(X>7||!Board [0][X].equals("__")){
+while(X!=0||X!=1||X!=2||X!=3||X!=4||X!=5||X!=6||!Board [0][X].equals("__")){
    System.out.println("Use Valid Numbers");
     X=scan.nextInt();
 }
