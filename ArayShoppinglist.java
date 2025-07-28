@@ -14,20 +14,38 @@ public class ArayShoppinglist {
             list.add(s);
          }
          else{
-            System.out.println(list);
-            System.out.println(list.size());
+            
             b=false;
          }
          }
-         System.out.println(list.get(0));
-         System.out.println(list.get(list.size()-1));
+         String w;
+         do{
+         System.out.println(list);
+            System.out.println(list.size());
          System.out.println("Is there anything wrong?");
-         String w=scan.nextLine)();
+         w=scan.nextLine();
          if (w.equalsIgnoreCase("Yes")){
          System.out.println("Change or Remove?");
          String c=scan.nextLine();
+         if(c.equalsIgnoreCase("change")){
+            System.out.println("which do you want to change?");
+            int n=scan.nextInt();
+            scan.nextLine();
+            System.out.println("Change to what?");
+            String s=scan.nextLine();
+            list.set(n,s);
+            System.out.println(list);
+            System.out.println(list.size());
          }
-         
+         else{
+            System.out.println("What do you want to remove?");
+            int r=scan.nextInt();
+            scan.nextLine();
+            list.remove(r);
+         }
+         }
+         }
+         while(!w.equalsIgnoreCase("no"));
         
          
 
