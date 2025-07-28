@@ -1,1 +1,0 @@
-return Fibinachi(i-1)+1;
