@@ -1,87 +1,146 @@
 import java.util.Random;
+
 public class Sorting {
-     public static void main(String[] a){
-      int[] b=new int[100];
-      for(int y=1;y<101;y++){
-         b[y-1]=y;
+   public static void main(String[] a) {
+      int[] b = new int[1_000_000];
+      for (int y = 1; y < 1_000_001; y++) {
+         b[y - 1] = y;
       }
-      shuffle(b);
-       System.out.println(bubblesort(b));
-        print(b);
-     }
-     public static int bogosort(int [] a){
-int time=0;
+      int[]d = {1,5,10,20,100,1000,10_000};
+      int []c ={1,2,3,4,5,6,7, 999_999, 1_000_001};
+      int[]result = merge(c,d);
+      print(result);
+   }
 
-      while(sorttf(a)==false){
+   public static int bogosort(int[] a) {
+      int time = 0;
+
+      while (sorttf(a) == false) {
          shuffle(a);
-time++;
-}
-return time;
-     }
-     
-     /* 
-     public static int[] Sortingmain(int[] a){
-Random r=new Random();
+         time++;
+      }
+      return time;
+   }
 
-     }*/
-     public static void swap(int[] a,int x1, int x2){
-        
-       int q=a[x1];
-a[x1]=a[x2];
-a[x2]=q;
-        
-     }
-     public static void array(int[] a){
-        System.out.println(a.length);
-     }
-     public static void print(int[] a){
-        for(int g=0;g<a.length;g++){
-            System.out.println(a[g]);
-            
-        }
-        System.out.println();
-     }
-     public static int random(int min, int max){
-      Random r=new Random();
-         int s=r.nextInt(max-min+1);
-         return s+min;
-     }
-public static void shuffle(int [] s){
+   /*
+    * public static int[] Sortingmain(int[] a){
+    * Random r=new Random();
+    * 
+    * }
+    */
+   public static void swap(int[] a, int x1, int x2) {
 
-   for(int o=0;o<s.length;o++){
-     int u=random(o, s.length -1);
-      swap(s, u, o);
+      int q = a[x1];
+      a[x1] = a[x2];
+      a[x2] = q;
 
    }
 
+   public static void array(int[] a) {
+      System.out.println(a.length);
+   }
 
+   public static void print(int[] a) {
+      for (int g = 0; g < a.length; g++) {
+         System.out.println(a[g]);
+
+      }
+      System.out.println();
+   }
+
+   public static int random(int min, int max) {
+      Random r = new Random();
+      int s = r.nextInt(max - min + 1);
+      return s + min;
+   }
+
+   public static void shuffle(int[] s) {
+
+      for (int o = 0; o < s.length; o++) {
+         int u = random(o, s.length - 1);
+         swap(s, u, o);
+
+      }
+
+   }
+
+   public static boolean sorttf(int[] a) {
+      boolean tf = true;
+      for (int miles = 0; miles < a.length - 1; miles++) {
+         if (a[miles] <= a[miles + 1]) {
+         } else {
+            tf = false;
+         }
+      }
+      return tf;
+   }
+
+   public static int bubblesort(int[] a) {
+      boolean tf = false;
+      int time = 0;
+      while (tf == false) {
+         tf = true;
+         for (int miles = 0; miles < a.length - 1; miles++) {
+            if (a[miles] <= a[miles + 1]) {
+            } else {
+               swap(a, miles, miles + 1);
+               tf = false;
+            }
+         }
+         time++;
+      }
+      return time;
+   }
+
+   public static void Selectionsort(int[] a) {
+      for (int sizer = 0; sizer < a.length; sizer++) {
+         int min = sizer;
+         for (int num = min + 1; num < a.length; num++) {
+            if (a[num] < a[min]) {
+               min = num;
+            }
+         }
+         swap(a, min, sizer);
+      }
+   }
+
+   public static void insertionsort(int[] a) {
+      for (int sort = 1; sort < a.length; sort++) {
+         int insert = sort - 1;
+         while (insert > -1 && a[insert] > a[insert + 1]) {
+            swap(a, insert, insert + 1);
+            insert--;
+         }
+      }
+   }
+
+public static int [] merge(int [] a, int [] b){
+int []arr=new int[a.length+b.length];
+int aPosition=0;
+int bPosition=0;
+   while(aPosition<a.length || bPosition <b.length){
+if (aPosition>=a.length){
+   arr[aPosition+bPosition]=b[bPosition];
+   bPosition++;
+}else if (bPosition>=b.length){
+   arr[aPosition+bPosition]=a[aPosition];
+   aPosition++;
 }
-public static boolean sorttf(int [] a){
-boolean tf=true;
-for(int miles=0; miles<a.length-1; miles++){
-   if(a[miles]<=a[miles+1]){
-   }
-   else{
-      tf=false;
-   }
+else{
+ if(a[aPosition]>b[bPosition]){
+   arr[aPosition+bPosition]=b[bPosition];
+   bPosition++;
+ }  
+ else{
+   arr[aPosition+bPosition]=a[aPosition];
+   aPosition++;
+ }
+ 
 }
- return tf;  
+
+   }
+   return arr;
+
+   
 }
-public static int bubblesort(int [] a){
-   boolean tf=false;
-   int time=0;
-   while(tf==false){
-       tf=true;
-   for(int miles=0; miles<a.length-1; miles++){
-   if(a[miles]<=a[miles+1]){
-   }
-   else{
-      swap (a, miles, miles+1);
-      tf=false;
-   }
-   }
-  time++;
 }
-return time;
-}
-   }
