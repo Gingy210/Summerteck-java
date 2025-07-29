@@ -1,12 +1,24 @@
 import java.util.Random;
 public class Sorting {
      public static void main(String[] a){
-       int[] b={4, 1, 5, 3};
-       print(b);
-shuffle(b);
-print(b);
-System.out.println(random(0,9));
+      int[] b=new int[100];
+      for(int y=1;y<101;y++){
+         b[y-1]=y;
+      }
+      shuffle(b);
+       System.out.println(bubblesort(b));
+        print(b);
      }
+     public static int bogosort(int [] a){
+int time=0;
+
+      while(sorttf(a)==false){
+         shuffle(a);
+time++;
+}
+return time;
+     }
+     
      /* 
      public static int[] Sortingmain(int[] a){
 Random r=new Random();
@@ -37,11 +49,39 @@ a[x2]=q;
 public static void shuffle(int [] s){
 
    for(int o=0;o<s.length;o++){
-      u=s[]
-      s[o]=random(0,9);
+     int u=random(o, s.length -1);
+      swap(s, u, o);
 
    }
 
 
+}
+public static boolean sorttf(int [] a){
+boolean tf=true;
+for(int miles=0; miles<a.length-1; miles++){
+   if(a[miles]<=a[miles+1]){
+   }
+   else{
+      tf=false;
+   }
+}
+ return tf;  
+}
+public static int bubblesort(int [] a){
+   boolean tf=false;
+   int time=0;
+   while(tf==false){
+       tf=true;
+   for(int miles=0; miles<a.length-1; miles++){
+   if(a[miles]<=a[miles+1]){
+   }
+   else{
+      swap (a, miles, miles+1);
+      tf=false;
+   }
+   }
+  time++;
+}
+return time;
 }
    }
