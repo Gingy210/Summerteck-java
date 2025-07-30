@@ -1,13 +1,13 @@
 import java.util.Random;
-
+import java.util.Arrays;
 public class Sorting {
    public static void main(String[] a) {
-      int[] b = new int[1_0];
-      for (int y = 1; y < 1_1; y++) {
+      int[] b = new int[10_00000];
+      for (int y = 1; y < 10_00001; y++) {
          b[y - 1] = y;
       }
       shuffle(b);
-
+Arrays.sort(b);
      print(b);
    }
 
@@ -167,7 +167,9 @@ public static void quicksort(int [] a,int start,int end){
    if(start>=end){
       return;
    }
+   
    int pivot=a[end];
+   //System.out.println(pivot);
    int mover1=0;
    int mover2=0;
 while(mover2<end){
@@ -182,5 +184,11 @@ else{
 
 }
 swap(a, mover1,end);
+quicksort(a,start,mover1-1);
+quicksort(a,mover1+1,end);
+
+}
+public static void quicksort(int [] a){
+quicksort(a,0,a.length-1);
 }
 }
