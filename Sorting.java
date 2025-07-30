@@ -2,14 +2,13 @@ import java.util.Random;
 
 public class Sorting {
    public static void main(String[] a) {
-      int[] b = new int[1_000_000];
-      for (int y = 1; y < 1_000_001; y++) {
+      int[] b = new int[1_0];
+      for (int y = 1; y < 1_1; y++) {
          b[y - 1] = y;
       }
-      int[]d = {1,5,10,20,100,1000,10_000};
-      int []c ={1,2,3,4,5,6,7, 999_999, 1_000_001};
-      int[]result = merge(c,d);
-      print(result);
+      shuffle(b);
+
+     print(b);
    }
 
    public static int bogosort(int[] a) {
@@ -142,5 +141,46 @@ else{
    return arr;
 
    
+}
+public static void mergesort(int [] a){
+   if(a.length<=1){
+      return;
+   }
+   int[]array1=new int[a.length/2];
+   int[]array2=new int[a.length-array1.length];
+   for(int mover=0;mover<array1.length;mover++){
+      array1[mover]=a[mover];
+   }
+for (int mover2=array1.length; mover2<a.length;mover2++){
+array2[mover2-array1.length]=a[mover2];
+}
+mergesort(array1);
+mergesort(array2);
+int[]mergearray=merge(array1,array2);
+for(int point=0;point<a.length;point++){
+   a[point]=mergearray[point];
+}
+
+}
+public static void quicksort(int [] a,int start,int end){
+   
+   if(start>=end){
+      return;
+   }
+   int pivot=a[end];
+   int mover1=0;
+   int mover2=0;
+while(mover2<end){
+if(a[mover2]<pivot){
+   swap(a,mover2,mover1);
+   mover2++;
+   mover1++;
+}
+else{
+   mover2++;
+}
+
+}
+swap(a, mover1,end);
 }
 }
