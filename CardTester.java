@@ -13,6 +13,7 @@ DeckCard.print();
 for(int draw=0;DeckCard.isEmpty()==false;draw++){
     Card d= DeckCard.drawing();
 System.out.println(d);
+
 }
 
 }

@@ -47,7 +47,7 @@ for(int x=0;x<52;x++){
          swap(u, o);
 
       }
-
+draw=51;
    }
    private void swap(int x1, int x2) {
 
