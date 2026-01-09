@@ -3,7 +3,6 @@ import java.util.Arrays;
 public class Sorting {
    public static void main(String[] a) {
       int[] b = new int[10_00000];
-      print(b);
       for (int y = 1; y < 10_00001; y++) {
          b[y - 1] = y;
       }
